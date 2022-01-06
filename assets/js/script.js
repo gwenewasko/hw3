@@ -1,23 +1,20 @@
 // Assignment Code
 let generateBtn = document.querySelector("#generate");
 
-// 1b. create an array of letters and special characters
+// Arrays of letters and special characters
 let lcLetters = "abcdefghijklmnopkrstuvwxyz";
 let ucLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let pwNumbers = "1234567890";
 let specialCharacters = "!@#$%^&*()?";
 let password = [];
 
-// generate password
-// return a final password as a string
+// Generate password funcation
 function generatePassword() {
-  // 1. assign a variable to length of the password
+  // Assign a variable to length of the password
   let wordBank = "";
   let passwordLength = prompt("Please chooose a password length.");
-  // let minLength = 4;
-  // let maxLength = 128;
 
-  // pw length validation
+  // Password length validation
   if (passwordLength < 2 || passwordLength > 128) {
     alert("Please choose a password length between 2 and 128 charachters.");
     generatePassword();
@@ -27,38 +24,31 @@ function generatePassword() {
   let trueNumbers = confirm("Would you like to use numbers?");
   let trueSpecChar = confirm("Would you like to use special characters?");
 
-  // 1c. loop through array of letters
+  // Loop through array of letters
   if (trueLc) {
     wordBank += lcLetters;
-    // password.push(getGenerateRandom(lcLetters));
-    // pwLength--;
   }
   if (trueUp) {
     wordBank += ucLetters;
-    // password.push(getGenerateRandom(ucLetters));
   }
   if (trueNumbers) {
     wordBank += pwNumbers;
-    // password = password.concat(pwNumbers);
   }
   if (trueSpecChar) {
     wordBank += specialCharacters;
-    // password = password.concat(specialCharacters);
   }
 
   for (let i = 0; i < passwordLength; i++) {
     var randomLetter = generateRandom(wordBank.split(""));
     password.push(randomLetter);
   }
+  // Return a final password as a string
   return password.join("");
 }
 function generateRandom(characters) {
   let index = Math.floor(Math.random() * characters.length);
   return characters[index];
 }
-// 1d. push each letter arry into pw array
-
-// 1e. create a random 10 letter pw
 
 // Write password to the #password input
 function writePassword() {
