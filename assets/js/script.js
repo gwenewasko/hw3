@@ -3,9 +3,9 @@ let generateBtn = document.querySelector("#generate");
 
 // 1b. create an array of letters and special characters
 let lcLetters = "abcdefghijklmnopkrstuvwxyz";
-let ucLetters = "ABC";
-let pwNumbers = "123";
-let specialCharacters = "!@#";
+let ucLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let pwNumbers = "1234567890";
+let specialCharacters = "!@#$%^&*()?";
 let password = [];
 
 // generate password
@@ -46,10 +46,11 @@ function generatePassword() {
     // password = password.concat(specialCharacters);
   }
   var randomLetter = generateRandom(wordBank.split(""));
-  // // for (let i = 0; i < passwordLength; i++) {
-  password.push(randomLetter);
+  for (let i = 0; i < passwordLength; i++) {
+    password.push(randomLetter);
 
-  return password.join("");
+    return password.join("");
+  }
 }
 function generateRandom(characters) {
   let index = Math.floor(Math.random() * characters.length);
@@ -58,7 +59,6 @@ function generateRandom(characters) {
 // 1d. push each letter arry into pw array
 
 // 1e. create a random 10 letter pw
-// 2. ask user for length
 
 // Write password to the #password input
 function writePassword() {
