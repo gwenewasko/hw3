@@ -18,8 +18,8 @@ function generatePassword() {
   // let maxLength = 128;
 
   // pw length validation
-  if (passwordLength < 8 || passwordLength > 128) {
-    alert("Please choose a password length between 8 and 128 charachters.");
+  if (passwordLength < 2 || passwordLength > 128) {
+    alert("Please choose a password length between 2 and 128 charachters.");
     generatePassword();
   }
   let trueLc = confirm("Would you like to use lower case letters?");
@@ -45,12 +45,12 @@ function generatePassword() {
     wordBank += specialCharacters;
     // password = password.concat(specialCharacters);
   }
-  var randomLetter = generateRandom(wordBank.split(""));
-  for (let i = 0; i < passwordLength; i++) {
-    password.push(randomLetter);
 
-    return password.join("");
+  for (let i = 0; i < passwordLength; i++) {
+    var randomLetter = generateRandom(wordBank.split(""));
+    password.push(randomLetter);
   }
+  return password.join("");
 }
 function generateRandom(characters) {
   let index = Math.floor(Math.random() * characters.length);
