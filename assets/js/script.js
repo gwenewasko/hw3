@@ -15,8 +15,8 @@ function generatePassword() {
   let passwordLength = prompt("Please chooose a password length.");
 
   // Password length validation
-  if (passwordLength < 2 || passwordLength > 128) {
-    alert("Please choose a password length between 2 and 128 charachters.");
+  if (passwordLength < 8 || passwordLength > 128) {
+    alert("Please choose a password length between 8 and 128 charachters.");
     generatePassword();
   }
   let trueLc = confirm("Would you like to use lower case letters?");
